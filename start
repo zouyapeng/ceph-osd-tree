@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import logging, sys
+
+from ceph_osd_tree import daemon_start, daemon_stop
+from config import Config
+
+logging.basicConfig(filename='/opt/ceph-osd-tree/ceph_osd_tree.log', filemode='a',
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S',level=logging.INFO)
+
+logging.getLogger("requests").setLevel(logging.WARNING)
+
+# 15921419093 田奎
+# 18351941235
+# 17095219595 杨小飞
+# 18621850018 吴言龙
+# 13774360511 李佩东
+# 13916488258 陈皓
+
+if __name__ == "__main__":
+    config = Config()
+    if len(sys.argv) == 1:
+        daemon_start(config)
+    elif len(sys.argv) == 2:
+        if 'stop' == sys.argv[1]:
+            daemon_stop(config)
+        elif 'restart' == sys.argv[1]:
+            daemon_stop(config)
+            daemon_start(config)
+        elif 'start_done' == sys.argv[1]:
+	    logging.info(u'开始处理问题！')
+            config.set_event_done(1)
+        elif 'end_done' == sys.argv[1]:
+	    logging.info(u'结束处理问题！')
+            config.set_event_done(0)
+        elif 'help' == sys.argv[1]:
+            print "usage: %s stop | restart | help | start_done | end_done" % sys.argv[0]
+        else:
+            print 'Error Command'
+            print "usage: %s stop | restart | help | start_done | end_done" % sys.argv[0]
+            sys.exit(2)
+    else:
+        print 'Error Command'
+        sys.exit(2)
+
+

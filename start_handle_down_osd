@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/usr/bin/python /opt/ceph-osd-tree/start start_done

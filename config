@@ -1,0 +1,13 @@
+[BaseConfig]
+ceph_rest_host = 172.16.0.54
+ceph_rest_port = 5000
+interval = 30
+restart_interval = 5
+max_send_num = 3
+done = 0
+daemon_pid = 1353
+
+[Contacts]
+email = yapeng.zou@newtouch.cn,kui.tian@newtouch.cn,yanlong.wu@newtouch.cn,peidong.li@newtouch.cn,xiaofei.yang1@newtouch.cn,hao.chen@newtouch.cn
+telephone = 15921419093,18621850018,13774360511,17095219595,13916488258
+
