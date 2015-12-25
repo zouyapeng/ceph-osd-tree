@@ -1,5 +1,5 @@
 [BaseConfig]
-ceph_rest_host = 172.16.0.54
+ceph_rest_host = localhost
 ceph_rest_port = 5000
 interval = 30
 restart_interval = 5
